@@ -64,6 +64,4 @@ function createPostTemplate (){
     bottone.textContent = "Acquista";
     bottone.classList.add("bg-primary", "rounded-3", "text-light", "mt-auto");
     card.appendChild(bottone);
-   
-
 }
