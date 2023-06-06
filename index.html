@@ -9,7 +9,41 @@
     <title>Market Place</title>
 </head>
 <body>
-    
+    <!-- navbar -->
+    <nav class="navbar bg-body-tertiary p-0">
+        <div class="container-fluid bg-success p-2">
+          <a class="navbar-brand" href="#">
+            <ion-icon class= " ms-3" name="bag-handle-outline"></ion-icon>
+             <span class="text-light ms-2 ">MarketPlace</span> 
+          </a>
+        </div>
+      </nav>
+
+      <!-- input inserimento -->
+
+      <div class="input-group mb-3 justify-content-around" >
+          <div class="row mt-4">
+            <div class="col-md-2">
+                <input id="inputname" type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+             <div class="col-md-3">
+                 <input id="inputdesc" type="text" class="form-control" placeholder="Description" aria-label="Username" aria-describedby="basic-addon1">
+             </div>
+             <div class="col-md-2">
+                <input id="inputbrand" type="text" class="form-control" placeholder="Brand" aria-label="Username" aria-describedby="basic-addon1">
+             </div>
+             <div class="col-md-3 ">
+                <input id="inputimg" type="text" class="form-control" placeholder="ImageUrl" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-md-2">
+                <input id="inputprice" type="text" class="form-control w-50" placeholder="Price" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+             
+          </div>
+
+          <button  id="creapost"class="bg-success text-light p-3 rounded-4 mt-2">Crea Post<ion-icon class="ms-2 " name="person-add-outline"></ion-icon></button>
+      </div>
+
 
 
     <script src="script.js"></script>
