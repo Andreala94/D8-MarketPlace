@@ -4,3 +4,7 @@
     box-sizing: border-box;
 }
 
+.card{
+    margin: 10px;
+    border: 1px solid black;
+}

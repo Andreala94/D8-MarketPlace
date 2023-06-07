@@ -10,7 +10,7 @@ let listaProdotti = document.getElementById("lista");
 
 
 
-
+//Creo una funzione che ristituisce gli oggetti tramite fetch metodo(GET)
 async function getproduct() {
     let request = await fetch(endpointUrl,
         {
@@ -29,6 +29,7 @@ async function getproduct() {
 // carico tutti i prodotti non appena viene caricata la pagina
 getproduct();
 
+//creo una funzione per la cancellazione del prodotto nella fetch metodo(DELETE)
 async function deleteproduct(idprodotto) {
 
     let request = await fetch(endpointUrl + idprodotto,
@@ -42,9 +43,9 @@ async function deleteproduct(idprodotto) {
 
     document.getElementById(idprodotto).remove();
 
-
 }
 
+//creo una funzione dove inserisco nella fetch i prodotti tramite il valore degli input
 async function insertproduct() {
     let request = await fetch(endpointUrl,
         {
@@ -59,50 +60,49 @@ async function insertproduct() {
 }
 
 
+// creo la funzione per la costruzione del tamplete "card" con immagine, nome, descrizione, brand e prezzo + i due bottoni di modifica e cancellazione
 
-function createPostTemplate(input) {
+function createPostTemplate(element) {
     // Creo la card
     let card = document.createElement("card")
-    card.classList.add("card", "col-2")
+    card.classList.add("card", "col-xl-2", "col-md-3", "col-sm-12")
     listaProdotti.appendChild(card);
-    card.id = input._id
+    card.id = element._id
 
     //inserisco l'immagine nella card
     let img = document.createElement("img");
     img.classList.add("img-fluid");
-    img.src = input.imageUrl;
+    img.src = element.imageUrl;
     card.appendChild(img)
 
     // creo name
     let name = document.createElement("p");
     name.classList.add("fw-bold")
-    name.textContent = "name: " + input.name;
+    name.textContent = "Nome: " + element.name;
     card.appendChild(name);
+
     // creo descrizione
     let description = document.createElement("p");
     description.classList.add("fw-bold")
-    description.textContent = input.description;
+    description.textContent = "Descrizione: " + element.description;
     card.appendChild(description);
+
     // creo il brand
     let brand = document.createElement("p");
     brand.classList.add("fw-bold")
-    brand.textContent = input.brand;
+    brand.textContent = "Brand: " + element.brand;
     card.appendChild(brand);
+
     //Aggiungi prezzo
     let prezzo = document.createElement("p");
-    prezzo.textContent = (input.price + " " + "Euro");
+    prezzo.textContent = ("Prezzo: " + element.price + " " + "Euro");
     prezzo.classList.add("fw-bold")
     card.appendChild(prezzo);
-    // Aggiungi un bottone
-    // let bottone = document.createElement("button");
-    // bottone.textContent = "Acquista";
-    // bottone.classList.add("bg-primary", "rounded-3", "text-light", "mt-auto");
-    // card.appendChild(bottone);
 
     //aggiungi bottone modifica
     let modifica = document.createElement("button");
     modifica.textContent = "Modifica";
-    modifica.classList.add("bg-success", "rounded-3", "text-light", "mt-auto");
+    modifica.classList.add("bg-success", "rounded-3", "text-light", "mt-auto", "mb-2");
     card.appendChild(modifica);
 
     //aggiungo bottone cancella
@@ -112,14 +112,22 @@ function createPostTemplate(input) {
     card.appendChild(cancella);
 
     cancella.addEventListener("click", () => {
-        deleteproduct(input._id);
+        deleteproduct(element._id);
     });
 
 
 }
 
 btnNewPost.addEventListener("click", () => {
+    // al click richiamo la funzione del POST
     insertproduct();
+    //cancellazione input
+    inputName.value = "";
+    inputDesc.value = "";
+    inputBrand.value = "";
+    inputImg.value = "";
+    inputPrezzo.value = "";
 })
 
 
+// https://github.com/Andreala94/M4-D4-MarketPlace-Book/blob/main/javascript2.js
