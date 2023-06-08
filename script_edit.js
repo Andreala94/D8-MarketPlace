@@ -49,5 +49,6 @@ async function editPost() {
 }
 
 btnEditPost.addEventListener("click", () =>{
+    console.log(btnEditPost);
    editPost();
 })
