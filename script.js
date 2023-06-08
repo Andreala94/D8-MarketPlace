@@ -99,10 +99,20 @@ function createPostTemplate(element) {
     prezzo.classList.add("fw-bold")
     card.appendChild(prezzo);
 
+    //aggiungo la pagina dettagli
+    let dettagli = document.createElement("a");
+    dettagli.textContent = "Dettagli Prodotto";
+    card.appendChild(dettagli);
+    dettagli.href = "dettagli.html?id=" + element._id;
+    dettagli.target="_blank";
+    
+
     //aggiungi bottone modifica
-    let modifica = document.createElement("button");
+    let modifica = document.createElement("a");
     modifica.textContent = "Modifica";
-    modifica.classList.add("bg-success", "rounded-3", "text-light", "mt-auto", "mb-2");
+    modifica.href = "edit.html?id=" + element._id;
+    modifica.target = "_blank";
+    modifica.classList.add("bg-success", "rounded-3", "text-light", "mt-auto", "mb-2","text-center");
     card.appendChild(modifica);
 
     //aggiungo bottone cancella
@@ -115,6 +125,7 @@ function createPostTemplate(element) {
         deleteproduct(element._id);
     });
 
+    
 
 }
 
@@ -130,4 +141,3 @@ btnNewPost.addEventListener("click", () => {
 })
 
 
-// https://github.com/Andreala94/M4-D4-MarketPlace-Book/blob/main/javascript2.js
