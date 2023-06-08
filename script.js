@@ -1,5 +1,5 @@
 let endpointUrl = "https://striveschool-api.herokuapp.com/api/product/"
-let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDdmNWJmY2I5YzBmNzAwMTQ0ODRmOTIiLCJpYXQiOjE2ODYwNjgyMjAsImV4cCI6MTY4NzI3NzgyMH0.e8OjUNPyNbtZn952cqRrt1KWyuuPWozTSAhxnPeXlIM"
+let token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDdmNWJmY2I5YzBmNzAwMTQ0ODRmOTIiLCJpYXQiOjE2ODYwNjgyMjAsImV4cCI6MTY4NzI3NzgyMH0.e8OjUNPyNbtZn952cqRrt1KWyuuPWozTSAhxnPeXlIM";
 let inputName = document.getElementById("inputname");
 let inputDesc = document.getElementById("inputdesc");
 let inputBrand = document.getElementById("inputbrand");
@@ -65,6 +65,7 @@ async function insertproduct() {
 function createPostTemplate(element) {
     // Creo la card
     let card = document.createElement("card")
+    card.setAttribute("data-pid", element._id);
     card.classList.add("card", "col-xl-2", "col-md-3", "col-sm-12")
     listaProdotti.appendChild(card);
     card.id = element._id
