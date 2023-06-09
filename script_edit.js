@@ -6,49 +6,70 @@ let inputDesc = document.getElementById("inputdesc");
 let inputBrand = document.getElementById("inputbrand");
 let inputImg = document.getElementById("inputimg");
 let inputPrezzo = document.getElementById("inputprice");
+let editDone = document.getElementById("edit-done")
+let errorAlert = document.getElementById("errorAlert");
+let btnEditPost = document.getElementById("modificapost");
 
-let btnEditPost = document.getElementById("modifcapost");
-
-const activeQuery = new URLSearchParams(windows.location.search);
+const activeQuery = new URLSearchParams(window.location.search);
 const activeId = activeQuery.get("id");
-console.log(activeId);
+// console.log(activeId);
 
-windows.onload = showPost();
 
-async function showPost() {
-    let request = await fetch(endpointUrl + activeId);
-    let json = await request.json();
+async function getPost() {
 
-    inputName.value = json.name;
-    inputDesc.value = json.description;
-    inputBrand.value = json.brand;
-    inputImg.value = json.imageUrl;
-    inputPrezzo.value = json.price;
-}
+    try {
+        const getRes = await fetch(endpointUrl + activeId, {
+            method: "GET",
+            headers: {
+                'Authorization': token, 'Content-Type': 'application/json'
+            },
 
-async function editPost() {
-    // let newPayload = {
-    //     "name": inputName.value,
-    //     "description": inputDesc.value,
-    //     "brand": inputBrand.value,
-    //     "imageUrl": inputImg.value,
-    //     "price": inputPrezzo.value
-    // };
-   try{
-      const editRes = await fetch(endpointUrl + activeId, {
-        method: "PUT",
-        headers: {
-            'Authorization': token, 'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ "name": inputName.value, "description": inputDesc.value, "brand": inputBrand.value, "imageUrl": inputImg.value, "price": inputPrezzo.value })
-    });
+        });
+        let data = await getRes.json();
 
-   } catch (error) {
-    console.log(error);
+            inputName.value = data.name;
+            inputDesc.value = data.description;
+            inputBrand.value = data.brand;
+            inputImg.value = data.imageUrl;
+            inputPrezzo.value = data.price;
+
+    } catch (error) {
+        console.log(error);
     }
 }
+getPost();
 
-btnEditPost.addEventListener("click", () =>{
+
+async function editPost() {
+   if ( inputName.value !== "" && inputDesc.value !== "" && inputBrand.value !== "" && inputImg.value !== "" && inputPrezzo.value !== "") {
+    try {
+        const editRes = await fetch(endpointUrl + activeId, {
+            method: "PUT",
+            headers: {
+                'Authorization': token, 'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ "name": inputName.value, "description": inputDesc.value, "brand": inputBrand.value, "imageUrl": inputImg.value, "price": inputPrezzo.value })
+        });
+
+        editDone.classList.toggle("d-none");
+        setTimeout(() => {
+            editDone.classList.toggle("d-none");
+        }, 5000);
+
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}else {
+    errorAlert.classList.toggle("d-none");
+    setTimeout(() => {
+        errorAlert.classList.toggle("d-none");
+    }, 5000);
+}
+}
+
+btnEditPost.addEventListener("click", () => {
     console.log(btnEditPost);
-   editPost();
+    editPost();
 })
