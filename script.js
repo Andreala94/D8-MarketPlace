@@ -66,7 +66,7 @@ function createPostTemplate(element) {
     // Creo la card
     let card = document.createElement("card")
     card.setAttribute("data-pid", element._id);
-    card.classList.add("card", "col-xl-2", "col-md-3", "col-sm-12")
+    card.classList.add("card", "col-xl-2", "col-md-4", "col-sm-12")
     listaProdotti.appendChild(card);
     card.id = element._id
 
@@ -78,7 +78,7 @@ function createPostTemplate(element) {
 
     // creo name
     let name = document.createElement("p");
-    name.classList.add("fw-bold")
+    name.classList.add("fw-bold", "mt-2")
     name.textContent = "Nome: " + element.name;
     card.appendChild(name);
 
@@ -96,13 +96,14 @@ function createPostTemplate(element) {
 
     //Aggiungi prezzo
     let prezzo = document.createElement("p");
-    prezzo.textContent = ("Prezzo: " + element.price + " " + "Euro");
+    prezzo.textContent = ("Prezzo: " + element.price + " " + "€");
     prezzo.classList.add("fw-bold")
     card.appendChild(prezzo);
 
     //aggiungo la pagina dettagli
     let dettagli = document.createElement("a");
     dettagli.textContent = "Dettagli Prodotto";
+    dettagli.classList.add("mb-3");
     card.appendChild(dettagli);
     dettagli.href = "dettagli.html?id=" + element._id;
     dettagli.target="_blank";
@@ -113,7 +114,7 @@ function createPostTemplate(element) {
     modifica.textContent = "Modifica";
     modifica.href = "edit.html?id=" + element._id;
     modifica.target = "_blank";
-    modifica.classList.add("bg-success", "rounded-3", "text-light", "mt-auto", "mb-2","text-center");
+    modifica.classList.add("bg-success", "rounded-3", "text-light", "mt-auto", "mb-2","text-center" ,"edit");
     card.appendChild(modifica);
 
     //aggiungo bottone cancella

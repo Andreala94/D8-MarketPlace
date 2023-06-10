@@ -7,8 +7,29 @@
 .card{
     margin: 10px;
     border: 1px solid black;
+    
+    
 }
 .icona{
     width: 30px;
     height: 50px;
 }
+.deleteproduct{
+    margin-top: 0 !important;
+}
+.edit{
+   text-decoration: none;
+}
+
+@media (min-width: 768px) and (max-width: 1140px) {
+    .input-group {
+      margin-left: 10px;
+    }
+  }
+  
+@media (min-width: 375px) and (max-width: 767px){
+    .input-group {
+        margin-left: 10px;
+      }
+}
+

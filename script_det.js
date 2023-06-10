@@ -35,6 +35,7 @@ async function showPost() {
 showPost();
 
 function mostraProdotto(element) {
+    // let div = document.createElement("row")
     let card = document.createElement("card");
     card.classList.add("card")
     let img = document.createElement("img");
