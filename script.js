@@ -106,28 +106,28 @@ function createPostTemplate(element) {
     dettagli.classList.add("mb-3");
     card.appendChild(dettagli);
     dettagli.href = "dettagli.html?id=" + element._id;
-    dettagli.target="_blank";
-    
+    dettagli.target = "_blank";
+
 
     //aggiungi bottone modifica
     let modifica = document.createElement("a");
     modifica.textContent = "Modifica";
     modifica.href = "edit.html?id=" + element._id;
     modifica.target = "_blank";
-    modifica.classList.add("bg-success", "rounded-3", "text-light", "mt-auto", "mb-2","text-center" ,"edit");
+    modifica.classList.add("bg-warning", "rounded-3", "text-dark", "mt-auto", "mb-2", "text-center", "edit", "fw-bold");
     card.appendChild(modifica);
 
     //aggiungo bottone cancella
     let cancella = document.createElement("button");
     cancella.textContent = "Cancella";
-    cancella.classList.add("bg-danger", "rounded-3", "text-light", "mt-auto", "deleteproduct");
+    cancella.classList.add("bg-danger", "rounded-3", "text-light", "mt-auto", "deleteproduct", "mb-2");
     card.appendChild(cancella);
 
     cancella.addEventListener("click", () => {
         deleteproduct(element._id);
     });
 
-    
+
 
 }
 

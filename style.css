@@ -3,11 +3,13 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(127, 255, 146);
+}
 
 .card{
     margin: 10px;
-    border: 1px solid black;
-    
+    border: 1px solid rgb(10, 233, 51);
     
 }
 .icona{
@@ -33,3 +35,6 @@
       }
 }
 
+.form-control{
+    border: 1px solid rgb(10, 233, 51);
+}
