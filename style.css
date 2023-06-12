@@ -7,6 +7,20 @@ body{
     background-color: rgb(127, 255, 146);
 }
 
+#adim{
+    width: 60px;
+    padding: 10px;
+   border-radius: 10px;
+   background-color: rgb(127, 255, 146);
+   
+}
+
+#adim > a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    
+}
 .card{
     margin: 10px;
     border: 1px solid rgb(10, 233, 51);
