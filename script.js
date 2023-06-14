@@ -72,7 +72,7 @@ function createPostTemplate(element) {
 
     //inserisco l'immagine nella card
     let img = document.createElement("img");
-    img.classList.add("img-fluid");
+    img.classList.add("img-fluid", "w-100","h-75");
     img.src = element.imageUrl;
     card.appendChild(img)
 
