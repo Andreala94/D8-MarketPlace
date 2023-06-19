@@ -60,3 +60,8 @@ body{
     border-radius: 25px;
     
 }
+
+#logo{
+    width: 3rem;
+    height: 2rem;
+}
