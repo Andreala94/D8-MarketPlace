@@ -46,6 +46,7 @@ body{
 @media (min-width: 375px) and (max-width: 767px){
     .input-group {
         margin-left: 10px;
+        
       }
 }
 
